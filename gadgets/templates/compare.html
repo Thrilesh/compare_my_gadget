@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Compare My Gadget{% endblock %}
+
+{% block content %}
+<h1 class="text-center my-4">Compare Your Gadgets</h1>
+<style>
+    .highlight-green {
+        background-color: #28a745 !important;
+        color: white !important;
+        font-weight: bold;
+    }
+</style>
+
+<!-- Responsive Comparison Table -->
+<div class="table-responsive">
+    <table class="table table-bordered text-center comparison-table">
+        <thead class="table-dark">
+            <tr>
+                <th>Feature</th>
+                {% for gadget in gadgets %}
+                    <th>{{ gadget.name }}</th>
+                {% endfor %}
+            </tr>
+        </thead>
+        <tbody>
+            <tr><td><strong>Brand</strong></td>{% for gadget in gadgets %}<td>{{ gadget.brand }}</td>{% endfor %}</tr>
+            <tr><td><strong>Category</strong></td>{% for gadget in gadgets %}<td>{{ gadget.category }}</td>{% endfor %}</tr>
+            <tr><td><strong>Price</strong></td>{% for gadget in gadgets %}<td class="price">${{ gadget.price }}</td>{% endfor %}</tr>
+            <tr><td><strong>RAM</strong></td>{% for gadget in gadgets %}<td class="ram">{{ gadget.ram }}GB</td>{% endfor %}</tr>
+            <tr><td><strong>Storage</strong></td>{% for gadget in gadgets %}<td class="storage">{{ gadget.storage }}GB</td>{% endfor %}</tr>
+        </tbody>
+    </table>
+</div>
+
+<!-- JavaScript for highlighting best values -->
+<script>
+    function highlightBestValues() {
+        const priceCells = document.querySelectorAll(".price");
+        const ramCells = document.querySelectorAll(".ram");
+        const storageCells = document.querySelectorAll(".storage");
+
+        const priceValues = [...priceCells].map(cell => parseFloat(cell.textContent.replace('$', '')));
+        const ramValues = [...ramCells].map(cell => parseFloat(cell.textContent.replace('GB', '')));
+        const storageValues = [...storageCells].map(cell => parseFloat(cell.textContent.replace('GB', '')));
+
+        let minPrice = Math.min(...priceValues);
+        let maxRam = Math.max(...ramValues);
+        let maxStorage = Math.max(...storageValues);
+
+        priceCells.forEach(cell => { if (parseFloat(cell.textContent.replace('$', '')) === minPrice) cell.classList.add('highlight-green'); });
+        ramCells.forEach(cell => { if (parseFloat(cell.textContent.replace('GB', '')) === maxRam) cell.classList.add('highlight-green'); });
+        storageCells.forEach(cell => { if (parseFloat(cell.textContent.replace('GB', '')) === maxStorage) cell.classList.add('highlight-green'); });
+    }
+
+    document.addEventListener("DOMContentLoaded", highlightBestValues);
+</script>
+{% endblock %}

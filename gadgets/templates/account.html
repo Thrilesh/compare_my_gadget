@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+    <h1 class="neon-blue">My Account</h1>
+    <div class="account-info">
+        <p><strong>Username:</strong> {{ user.username }}</p>
+        <p><strong>Email:</strong> {{ user.email }}</p>
+    </div>
+    <a href="{% url 'logout' %}" class="compare-btn">Logout</a>
+</div>
+{% endblock %}

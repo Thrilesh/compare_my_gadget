@@ -1,0 +1,69 @@
+<!-- Add Font Awesome for the eye icon -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+<style>
+    /* Style for input container */
+    .password-container {
+        position: relative;
+        width: 100%;
+    }
+
+    /* Style for input field */
+    .password-container input {
+        width: 100%;
+        padding-right: 35px; /* Space for the icon */
+    }
+
+    /* Style for the eye icon */
+    .password-container .eye-icon {
+        position: absolute;
+        right: 10px;
+        top: 50%;
+        transform: translateY(-50%);
+        cursor: pointer;
+        color: #666;
+    }
+
+    .password-container .eye-icon:hover {
+        color: #000;
+    }
+</style>
+
+<div class="row">
+    <div class="col-md-6 form-group">
+        <label for="password">Password <span class="star_required">*</span></label>
+        <div class="password-container">
+            <input name="Password_txt" type="password" id="Password_txt" class="form-control form-control-sm label_pass">
+            <i id="eyeIcon1" class="fa fa-eye eye-icon" onclick="togglePassword('Password_txt', 'eyeIcon1')"></i>
+        </div>
+        <span id="Password_RFVAL" class="error" style="color:Red;visibility:hidden;">Password is mandatory</span>
+    </div>
+
+    <div class="col-md-6 form-group">
+        <label for="conformpassword">Confirm Password <span class="star_required">*</span></label>
+        <div class="password-container">
+            <input name="ConPassword_txt" type="password" id="ConPassword_txt" class="form-control form-control-sm label_pass">
+            <i id="eyeIcon2" class="fa fa-eye eye-icon" onclick="togglePassword('ConPassword_txt', 'eyeIcon2')"></i>
+        </div>
+        <span id="Con_pass_txt" style="color:Red;visibility:hidden;">Confirm Password is mandatory</span>
+        <span id="ComparePasswords" class="error" style="color:Red;visibility:hidden;">Passwords do not match</span>
+    </div>
+</div>
+
+<!-- JavaScript for toggling password visibility -->
+<script>
+    function togglePassword(inputId, eyeIconId) {
+        var passwordField = document.getElementById(inputId);
+        var eyeIcon = document.getElementById(eyeIconId);
+
+        if (passwordField.type === "password") {
+            passwordField.type = "text";
+            eyeIcon.classList.remove("fa-eye");
+            eyeIcon.classList.add("fa-eye-slash");
+        } else {
+            passwordField.type = "password";
+            eyeIcon.classList.remove("fa-eye-slash");
+            eyeIcon.classList.add("fa-eye");
+        }
+    }
+</script>

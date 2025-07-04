@@ -1,0 +1,530 @@
+/* Dark Theme */
+body.dark-theme {
+    background-color: #1E1E1E;
+    color: #F5F5F5;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Neon Accents */
+.neon-blue {
+    color: #00FFFF;
+}
+
+.neon-green {
+    color: #39FF14;
+}
+
+/* Search Bar */
+.search-bar {
+    display: flex;
+    justify-content: center;
+    margin: 20px;
+}
+
+.search-bar input {
+    width: 60%;
+    padding: 10px;
+    border: 2px solid #00FFFF;
+    border-radius: 25px;
+    background: transparent;
+    color: #F5F5F5;
+}
+
+/* Gadget Cards */
+.gadget-card {
+    border: 1px solid #00FFFF;
+    border-radius: 10px;
+    padding: 15px;
+    margin: 10px;
+    text-align: center;
+    transition: transform 0.3s;
+}
+
+.gadget-card:hover {
+    transform: scale(1.05);
+    border-color: #39FF14;
+}
+
+/* Price Tracker */
+#priceChart {
+    width: 100%;
+    max-width: 600px;
+    margin: auto;
+}
+
+
+/* Compare Button */
+.compare-btn {
+    background: transparent;
+    border: 2px solid #00FFFF;
+    color: #00FFFF;
+    padding: 8px 16px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.compare-btn:hover {
+    background: #00FFFF;
+    color: #1E1E1E;
+}
+
+/* Floating Comparison Bar */
+#comparison-bar {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #2E2E2E;
+    padding: 15px;
+    border-radius: 10px;
+    display: none;
+    align-items: center;
+    gap: 15px;
+    z-index: 1000;
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.2);
+}
+
+#selected-gadgets {
+    display: flex;
+    gap: 10px;
+}
+
+/* Updated thumbnail styling */
+.gadget-thumbnail {
+    position: relative;
+    /* Important for absolute positioning of X button */
+    width: 60px;
+    height: 60px;
+    border: 2px solid #00FFFF;
+    border-radius: 8px;
+    overflow: visible;
+    /* Changed from hidden to show the X button */
+    background: #1E1E1E;
+}
+
+.gadget-thumbnail img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 6px;
+}
+
+#compare-now {
+    background: #00FFFF;
+    color: #1E1E1E;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: bold;
+}
+
+#compare-now:hover {
+    background: #00cccc;
+    transform: scale(1.05);
+}
+
+.no-results {
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+    color: #ff4d4d;
+    margin-top: 20px;
+}
+
+
+/* Updated remove button styling */
+.remove-gadget {
+    position: absolute;
+    top: -8px;
+    /* Moved up slightly */
+    right: -8px;
+    /* Moved right slightly */
+    width: 20px;
+    height: 20px;
+    background: #ff4d4d;
+    color: white;
+    border: 2px solid #1E1E1E;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 14px;
+    font-weight: bold;
+    padding: 0;
+    z-index: 2;
+    transition: all 0.2s ease;
+}
+
+.remove-gadget:hover {
+    background: #ff0000;
+    transform: scale(1.1);
+}
+
+.fixed-img {
+    width: 150px;
+    /* Set fixed width */
+    height: 200px;
+    /* Set fixed height */
+    object-fit: cover;
+    /* Ensures the image covers the area without distortion */
+    display: block;
+    margin: 0 auto;
+    /* Centers the image */
+}
+
+/* Table Styling */
+.comparison-table th,
+.comparison-table td {
+    padding: 10px;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.comparison-table img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+}
+
+/* Highlight Best Spec */
+.highlight-green {
+    background-color: #28a745 !;
+    color: white;
+    font-weight: bold;
+}
+
+
+
+/* Navbar Styling */
+.navbar {
+    background-color: #1E1E1E !important;
+    border-bottom: 2px solid #00FFFF;
+    padding: 10px 15px;
+}
+
+.navbar-brand img {
+    height: 40px;
+    filter: drop-shadow(0 0 5px #00FFFF);
+}
+
+.navbar-nav .nav-item .nav-link {
+    color: #F5F5F5 !important;
+    transition: color 0.3s ease-in-out;
+    font-weight: 500;
+
+}
+
+.navbar-nav .nav-item .nav-link:hover {
+    color: #00FFFF !important;
+    text-shadow: 0 0 5px #00FFFF;
+}
+
+/* Dropdown Styling */
+.navbar-nav .dropdown-menu {
+    background-color: #1E1E1E;
+    border: 2px solid #00FFFF;
+    box-shadow: 0 0 10px rgba(0, 255, 255, 0.2);
+}
+
+.navbar-nav .dropdown-item {
+    color: #F5F5F5;
+}
+
+.navbar-nav .dropdown-item:hover {
+    background-color: #00FFFF;
+    color: #1E1E1E;
+    font-weight: bold;
+}
+
+/* Navbar Icons */
+.navbar-nav .nav-item .nav-link i {
+    color: #00FFFF;
+    margin-right: 5px;
+}
+
+/* Navbar Toggle Button */
+.navbar-toggler {
+    border: 2px solid #00FFFF;
+}
+
+.navbar-toggler-icon {
+    filter: brightness(0) invert(1);
+}
+
+/* Account Dropdown */
+.navbar-nav .dropdown-menu-end {
+    right: 0;
+    left: auto;
+}
+
+/* Active Link Highlight */
+.navbar-nav .nav-item .active {
+    color: #39FF14 !important;
+    font-weight: bold;
+}
+
+.navbar .nav-link {
+    font-size: 14px !important;
+    /* Adjust this value as needed */
+}
+
+/* If you want different sizes for dropdown items */
+.navbar .dropdown-item {
+    font-size: 13px !important;
+    /* Adjust this value as needed */
+}
+
+
+/******=======================login page styles =================*/
+/* Login Form Card Styling */
+html,
+body {
+    background-color: #1E1E1E !important;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+}
+
+/* Update login container to fill viewport */
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: calc(100vh - 80px);
+    /* Adjust based on your navbar height */
+    background-color: #1E1E1E;
+    padding: 20px;
+}
+
+.login-card {
+    background-color: #2E2E2E;
+    border: 2px solid #00FFFF;
+    border-radius: 15px;
+    padding: 30px;
+    width: 100%;
+    max-width: 400px;
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.2);
+}
+
+/* Ensure content area has dark background */
+#content {
+    background-color: #1E1E1E;
+    min-height: calc(100vh - 80px);
+    /* Adjust based on your navbar height */
+}
+
+.login-card h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 24px;
+    text-shadow: 0 0 10px #00FFFF;
+}
+
+.login-card form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.login-card form p {
+    margin: 0;
+}
+
+.login-card form input {
+    width: 100%;
+    padding: 10px;
+    border: 2px solid #00FFFF;
+    border-radius: 8px;
+    background: #1E1E1E;
+    color: #F5F5F5;
+    transition: all 0.3s ease;
+}
+
+.login-card form input:focus {
+    outline: none;
+    border-color: #39FF14;
+    box-shadow: 0 0 10px rgba(57, 255, 20, 0.3);
+}
+
+.login-card form button {
+    width: 100%;
+    padding: 12px;
+    margin-top: 10px;
+    font-size: 16px;
+}
+
+.login-card .signup-text {
+    text-align: center;
+    margin-top: 20px;
+    color: #F5F5F5;
+}
+
+.login-card .signup-text a {
+    color: #39FF14;
+    text-decoration: none;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.login-card .signup-text a:hover {
+    text-shadow: 0 0 10px #39FF14;
+}
+
+
+
+.login-card form p label {
+    color: #F5F5F5;
+}
+
+/* Ensure the help text is also visible */
+.login-card form .helptext {
+    color: #F5F5F5;
+    font-size: 12px;
+    opacity: 0.8;
+}
+
+/* Style any error messages */
+.login-card form .errorlist {
+    color: #ff4d4d;
+    list-style: none;
+    padding: 0;
+    margin: 5px 0;
+}
+
+/*===============================signup form=======================*/
+/* Signup Form Styling */
+.signup-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: calc(100vh - 80px);
+    padding: 20px;
+    background-color: #1E1E1E;
+}
+
+.signup-card {
+    background-color: #2E2E2E;
+    border: 2px solid #00FFFF;
+    border-radius: 15px;
+    padding: 30px;
+    width: 100%;
+    max-width: 400px;
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.2);
+}
+
+.signup-card h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 24px;
+    text-shadow: 0 0 10px #00FFFF;
+}
+
+.signup-card form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.signup-card form p {
+    margin: 0;
+}
+
+.signup-card form label {
+    color: #F5F5F5;
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 500;
+}
+
+.signup-card form input {
+    width: 100%;
+    padding: 10px;
+    border: 2px solid #00FFFF;
+    border-radius: 8px;
+    background: #1E1E1E;
+    color: #F5F5F5;
+    transition: all 0.3s ease;
+}
+
+.signup-card form input:focus {
+    outline: none;
+    border-color: #39FF14;
+    box-shadow: 0 0 10px rgba(57, 255, 20, 0.3);
+}
+
+.signup-card form button {
+    width: 100%;
+    padding: 12px;
+    margin-top: 10px;
+    font-size: 16px;
+}
+
+.signup-card .login-text {
+    text-align: center;
+    margin-top: 20px;
+    color: #F5F5F5;
+}
+
+.signup-card .login-text a {
+    color: #39FF14;
+    text-decoration: none;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.signup-card .login-text a:hover {
+    text-shadow: 0 0 10px #39FF14;
+}
+
+/* Style form errors and help text */
+.signup-card form .helptext {
+    color: #F5F5F5;
+    font-size: 12px;
+    opacity: 0.8;
+    margin-top: 5px;
+}
+
+.signup-card form ul.errorlist {
+    color: #ff4d4d;
+    list-style: none;
+    padding: 0;
+    margin: 5px 0;
+    font-size: 14px;
+}
+
+/* Password validation styles */
+.signup-card form ul {
+    color: #F5F5F5;
+    font-size: 12px;
+    list-style: none;
+    padding-left: 0;
+    margin-top: 5px;
+}
+
+.signup-card form ul li {
+    margin-bottom: 3px;
+}
+
+
+.gadget-link {
+    text-decoration: none;
+    /* Remove underline */
+    color: inherit;
+    /* Use default text color */
+}
+
+.gadget-name {
+    font-weight: bold;
+    font-size: 1.1rem;
+    color: #ffffff;
+    /* Change color to match your theme */
+    transition: color 0.3s ease-in-out;
+}
+
+.gadget-name:hover {
+    color: #ffcc00;
+    /* Highlight effect on hover */
+}

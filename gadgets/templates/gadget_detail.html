@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>{{ gadget.name }}</h1>
+<img src="{{ gadget.image.url }}" alt="{{ gadget.name }}" class="img-fluid">
+
+<h2>Reviews</h2>
+{% for review in reviews %}
+    <div class="review">
+        <strong>{{ review.user.username }}</strong> - {{ review.rating }} ★
+        <p>{{ review.comment }}</p>
+        <small>{{ review.created_at|date:"F j, Y" }}</small>
+    </div>
+{% empty %}
+    <p>No reviews yet. Be the first to review!</p>
+{% endfor %}
+
+{% if user.is_authenticated %}
+    <h3>Add a Review</h3>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-primary">Submit Review</button>
+    </form>
+{% else %}
+    <p><a href="{% url 'login' %}">Log in</a> to leave a review.</p>
+{% endif %}
+{% endblock %}

@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+    <h1 class="neon-green">My Wishlist</h1>
+
+    {% if wishlist_items %}
+        <div class="wishlist-grid">
+            {% for item in wishlist_items %}
+                <div class="gadget-card">
+                    <img src="{{ item.gadget.image.url }}" class="fixed-img">
+                    <h3>{{ item.gadget.name }}</h3>
+                    <p>{{ item.gadget.price }} USD</p>
+                    <a href="{% url 'compare_gadgets' %}?gadgets={{ item.gadget.id }}" class="compare-btn">Compare</a>
+                </div>
+            {% endfor %}
+        </div>
+    {% else %}
+        <p class="no-results">Your wishlist is empty.</p>
+    {% endif %}
+</div>
+{% endblock %}
