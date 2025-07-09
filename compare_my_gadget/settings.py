@@ -71,12 +71,26 @@ WSGI_APPLICATION = 'compare_my_gadget.wsgi.application'
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
 # Use SQLite for Vercel deployment (since PostgreSQL requires persistent storage)
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+if os.environ.get('VERCEL_ENV'):
+    # Use SQLite for Vercel deployment
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': BASE_DIR / 'db.sqlite3',
+        }
     }
-}
+else:
+    # Use PostgreSQL for local development
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql',
+            'NAME': 'compare_my_gadget',
+            'USER': 'postgres',
+            'PASSWORD': 'A850W993@abcd',
+            'HOST': 'localhost',
+            'PORT': '5432',
+        }
+    }
 
 # For production with external database (uncomment and configure as needed)
 # DATABASES = {
